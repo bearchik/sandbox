@@ -1,0 +1,10 @@
+---
+- name: Install nginx
+  hosts: all
+  gather_facts: yes
+  become: yes
+  become_method: sudo
+  
+  roles:
+    - nginx
+

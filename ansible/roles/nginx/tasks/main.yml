@@ -1,0 +1,22 @@
+---
+# tasks file for nginx
+- name: Update apt cache
+  apt: update_cache=yes
+
+- name: Install required packages
+  apt: name=nginx
+
+- name: Start nginx service
+  service: name=nginx state=started
+
+- name: Delete default
+  file: path=/etc/nginx/sites-enabled/default state=absent
+  notify: reload nginx
+
+- name: Create proxy-5001 confs
+  template: src=proxy-5001.conf.j2 dest=/etc/nginx/sites-available/proxy-5001 owner=www-data group=www-data
+  notify: reload nginx
+
+- name: Create link to conf
+  file: src=/etc/nginx/sites-available/proxy-5001 dest=/etc/nginx/sites-enabled/proxy owner=www-data group=www-data state=link
+  notify: reload nginx

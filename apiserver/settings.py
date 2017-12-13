@@ -23,7 +23,7 @@ if VAGRANT and not os.environ.get('NODEBUG', False):
 LIVE = not DEBUG
 
 # Default server port to listen on.
-SERVER_PORT = 5000
+SERVER_PORT = 5001
 
 # Local file system paths
 PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__)))

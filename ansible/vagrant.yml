@@ -8,7 +8,7 @@
     locale: en_US.UTF-8
     timezone: Europe/Moscow
     vagrant: True
-
+    
   roles:
     - common
     - locale
@@ -18,3 +18,4 @@
 - include: packages.yml
 - include: python.yml
 - include: bootstrap.yml
+- include: nginx.yml
